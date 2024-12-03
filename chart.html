@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noticia+Text:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <style>
+        body
+        {
+            background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+            font-family: "Montserrat", sans-serif;
+        }
+        .chart-box
+        {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+        .heading{
+            color: #fff;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading">Chart JS</h1>
+    <div class="chart-box">
+        <div style="width:500px;">
+            <canvas id="myChart" ></canvas>
+        </div>
+        <div style="width:500px;">
+            <canvas id="myPie" ></canvas>
+        </div>
+        <div style="width:500px;">
+            <canvas id="myLine" ></canvas>
+        </div>
+    </div>
+    
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [
+                {
+                label: '# of Votes',
+                data: [12, 30, 17, 25, 2, 13],
+                backgroundColor: ['#fd8080', '#26a0fc', '#febc3b', '#68d4cd', '#8b75d7', '#ec6724'],
+                borderWidth: 1,
+                color:["#ffffff"]
+                },
+            ]
+          },
+          options: {
+            scales: {
+                x: {
+                    ticks: {
+                    color: '#ffffff', // Change x-axis labels (Red, Blue, etc.) to red
+                    },
+                },
+              y: {
+                beginAtZero: true,
+                ticks: {
+                color: '#ffffff', // Change y-axis labels to blue
+                },
+              }
+            },
+            plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ffffff',
+                            font: {
+                                size: 14
+                            }
+                        }
+                    }
+                },
+                datalabels: {
+                    color: '#0000ff', // Data label color (blue)
+                    font: {
+                    size: 14,
+                    },
+                },
+           }
+
+        });
+
+
+
+        const pie = document.getElementById('myPie');
+      
+        new Chart(pie, {
+          type: 'doughnut',
+          data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [
+                {
+                label: '# of Votes',
+                data: [12, 30, 3, 15, 8, 13],
+                backgroundColor: ['#ee4322', '#00aced', '#ffc329', '#8ec73f', '#7752a3', '#f67f20'],
+                borderWidth: 1
+                },
+            ]
+          },
+          options: {
+            scales: false,
+            plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ffffff',
+                            font: {
+                                size: 14
+                            }
+                        }
+                    }
+                },
+                datalabels: {
+                    color: '#0000ff', // Data label color (blue)
+                    font: {
+                    size: 14,
+                    },
+                },
+          }
+        });
+
+
+        const line = document.getElementById('myLine');
+      
+        new Chart(line, {
+          type: 'line',
+          data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [
+                {
+                label: '# of Votes',
+                data: [12, 30, 3, 15, 8, 13],
+                backgroundColor: ['#ee4322', '#00aced', '#ffc329', '#8ec73f', '#7752a3', '#f67f20'],
+                borderWidth: 1,
+                },
+            ]
+          },
+          options: {
+            scales: {
+                x: {
+                    ticks: {
+                    color: '#ffffff', // Change x-axis labels (Red, Blue, etc.) to red
+                    },
+                },
+              y: {
+                beginAtZero: true,
+                ticks: {
+                color: '#ffffff', // Change y-axis labels to blue
+                },
+              }
+            },
+            plugins: {
+                    legend: {
+                        labels: {
+                            color: '#ffffff',
+                            font: {
+                                size: 14
+                            }
+                        }
+                    }
+                },
+                datalabels: {
+                    color: '#0000ff', // Data label color (blue)
+                    font: {
+                    size: 14,
+                    },
+                },
+          }
+        });
+
+
+       
+      </script>
+</body>
+</html>
